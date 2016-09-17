@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @edit.body %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @edit.user %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @edit.comment %>
+</p>
+
+<p>
+  <strong>Is accepted:</strong>
+  <%= @edit.is_accepted %>
+</p>
+
+<%= link_to 'Edit', edit_edit_path(@edit) %> |
+<%= link_to 'Back', edits_path %>
