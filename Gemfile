@@ -43,6 +43,8 @@ group :development, :test do
   gem 'childprocess'
   gem 'spork'
   gem 'spork-rails'
+  gem 'factory_girl'
+
 end
 group :test do
   gem 'capybara'

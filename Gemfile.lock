@@ -71,6 +71,8 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.7.0)
+    factory_girl (4.7.0)
+      activesupport (>= 3.0.0)
     ffi (1.9.14)
     formatador (0.2.5)
     globalid (0.3.7)
@@ -245,6 +247,7 @@ DEPENDENCIES
   childprocess
   coffee-rails (~> 4.1.0)
   devise
+  factory_girl
   guard-rspec
   guard-spork
   jbuilder (~> 2.0)
