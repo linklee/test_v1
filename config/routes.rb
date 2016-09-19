@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :edits
+  resources :edits
+  resources :edits
+  resources :answers, only: [:index, :show, :new, :create]
   resources :edits, only: [:index, :show, :new, :create]
-
-  resources :comments, only: [:index, :show, :new, :create]
 
   resources :questions, only: [:index, :show, :new, :create]
 

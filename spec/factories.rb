@@ -1,4 +1,14 @@
 FactoryGirl.define do
+  factory :edit do
+    body "MyText"
+    user nil
+    answer nil
+  end
+  factory :answer do
+    body "MyText"
+    user nil
+    question nil
+  end
   factory :user do
     sequence(:name)  { |n| "Person #{n}" }
     sequence(:last_name)  { |n| "Person #{n}" }

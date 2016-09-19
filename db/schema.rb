@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160917200705) do
+ActiveRecord::Schema.define(version: 20160919164942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
+  add_index "answers", ["user_id"], name: "index_answers_on_user_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -30,13 +41,12 @@ ActiveRecord::Schema.define(version: 20160917200705) do
   create_table "edits", force: :cascade do |t|
     t.text     "body"
     t.integer  "user_id"
-    t.integer  "comment_id"
-    t.boolean  "is_accepted"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "answer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "edits", ["comment_id"], name: "index_edits_on_comment_id", using: :btree
+  add_index "edits", ["answer_id"], name: "index_edits_on_answer_id", using: :btree
   add_index "edits", ["user_id"], name: "index_edits_on_user_id", using: :btree
 
   create_table "questions", force: :cascade do |t|
@@ -69,9 +79,11 @@ ActiveRecord::Schema.define(version: 20160917200705) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "users"
   add_foreign_key "comments", "questions"
   add_foreign_key "comments", "users"
-  add_foreign_key "edits", "comments"
+  add_foreign_key "edits", "answers"
   add_foreign_key "edits", "users"
   add_foreign_key "questions", "users"
 end

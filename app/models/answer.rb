@@ -1,4 +1,4 @@
-class Comment < ActiveRecord::Base
+class Answer < ActiveRecord::Base
   belongs_to :user
   belongs_to :question
   has_many :edits, dependent: :destroy
