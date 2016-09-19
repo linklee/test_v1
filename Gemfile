@@ -36,6 +36,18 @@ gem 'devise'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'guard-rspec'
+
+  gem 'guard-spork'
+  gem 'childprocess'
+  gem 'spork'
+  gem 'spork-rails'
+end
+group :test do
+  gem 'capybara'
+  gem 'rb-inotify'
+  gem 'libnotify'
 end
 
 group :development do
