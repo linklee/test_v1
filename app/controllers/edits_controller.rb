@@ -69,6 +69,6 @@ class EditsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def edit_params
-      params.require(:edit).permit(:body, :user_id, :comment_id, :is_accepted)
+      params.require(:edit).permit(:body, :comment_id)
     end
 end

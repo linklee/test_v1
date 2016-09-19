@@ -1,31 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Questions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @questions.each do |question| %>
+<h1>Вопросы</h1>
+<%if @questions.empty?%>
+      <p class="no-questions">Вопросов пока нет</p>
+<%else%>    
+  <table>
+    <thead>
       <tr>
-        <td><%= question.title %></td>
-        <td><%= question.body %></td>
-        <td><%= question.user %></td>
-        <td><%= link_to 'Show', question %></td>
-        <td><%= link_to 'Edit', edit_question_path(question) %></td>
-        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>id</th>
+        <th >Title</th>
+        <th>User_id</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @questions.each do |question| %>
+        <tr>
+          <td><%= question.id %></td>
+          <td ><%= question.title %></td>
+          <td ><%= question.user.id%></td>
+          <td><%= link_to 'Show', question %></td></td>
+        </tr>
+      <% end %>
+      
+    </tbody>
+  </table>
+<%end%>
 
 <br>
 
-<%= link_to 'New Question', new_question_path %>
+<%= link_to 'Задать вопрос', new_question_path %>

@@ -43,7 +43,7 @@ group :development, :test do
   gem 'childprocess'
   gem 'spork'
   gem 'spork-rails'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
 
 end
 group :test do
