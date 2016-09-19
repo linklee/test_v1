@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'spork'
 require 'factory_girl_rails' 
+
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
 
@@ -146,4 +147,5 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
 end

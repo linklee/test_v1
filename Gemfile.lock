@@ -208,6 +208,8 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     shellany (0.0.1)
+    shoulda-matchers (2.8.0)
+      activesupport (>= 3.0.0)
     slop (3.6.0)
     spork (1.0.0rc4)
     spork-rails (4.0.0)
@@ -262,6 +264,7 @@ DEPENDENCIES
   rspec-rails (~> 3.5)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  shoulda-matchers (< 3.0.0)
   spork
   spork-rails
   spring

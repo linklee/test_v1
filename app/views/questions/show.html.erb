@@ -2,11 +2,13 @@
 	<p id="notice"><%= notice %></p>
 	<div class="question-block">
 		<p>
-		  <strong><%= @question.title %></strong> –
-		  <strong><%= "#{@question.user.name} #{@question.user.last_name}" %></strong>
+		  <strong class="q-title"><%= @question.title %></strong> –
+		  <strong class="q-user"><%= "#{@question.user.name} #{@question.user.last_name}" %></strong>
 		  <%= time_ago_in_words(@question.created_at) + " назад" %>
 		  <br><br>
-		  <%= @question.body %>
+		  <p class="q-body">
+		  	<%= @question.body %>
+		  </p>
 		</p>
 		<%= link_to 'Дать ответ', new_answer_path %>
 	</div>

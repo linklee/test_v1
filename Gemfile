@@ -50,6 +50,10 @@ group :test do
   gem 'capybara'
   gem 'rb-inotify'
   gem 'libnotify'
+  gem "shoulda-matchers", "< 3.0.0",
+   require: false
+  gem 'capybara'
+
 end
 
 group :development do
