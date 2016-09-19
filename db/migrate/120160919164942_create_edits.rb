@@ -1,5 +1,6 @@
 class CreateEdits < ActiveRecord::Migration
   def change
+	#execute "DROP TABLE #{:edits} CASCADE" 
 
     create_table :edits do |t|
       t.text :body
