@@ -1,18 +1,15 @@
-<p id="notice"><%= notice %></p>
+<div class="scenario-step w-container">
+	<p id="notice"><%= notice %></p>
+	<div class="question-block">
+		<p>
+		  <strong><%= @question.title %></strong> –
+		  <strong><%= "#{@question.user.name} #{@question.user.last_name}" %></strong>
+		  <%= time_ago_in_words(@question.created_at) + " назад" %>
+		  <br><br>
+		  <%= @question.body %>
+		</p>
+		<%= link_to 'Дать ответ', new_comment_path %>
+	</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @question.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @question.body %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @question.user.id %>
-</p>
-
-<%= link_to 'Back', questions_path %>
+<%= link_to 'Задать вопрос', new_question_path %>
+</div>
