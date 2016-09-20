@@ -1,6 +1,16 @@
-<div class="w-form">
-<form >
-<label for="field-4">Дать ответ:</label>
-<textarea class="w-input" data-name="Field 4" id="field-4" maxlength="5000" name="field-4" placeholder="На Октябрьской рядом с южным выходом между полицейской будкой и трещиной в стене есть полуржавая дверь, которая временами бывает открытой. За не лежат утерянные архивы Ленинки, точнее их часть, которую обнаружили диггеры во время Большого подкопа" required="required"></textarea><input class="w-button" data-wait="Please wait..." type="submit" value="Ответить"></form>
+<div class="w-form new-answer-form hidden">
+  <%= form_for(@answer) do |f| %>
+    <div class="field">
+      <%= f.label "Дать ответ:" %><br>
+      <%= f.text_area :body, class: "w-input" %>
+    </div>
 
+    <div class="field">
+      <%= f.hidden_field :question_id, value: @question.id %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Ответить", class: "w-button"%>
+    </div>
+  <% end %>
 </div>
