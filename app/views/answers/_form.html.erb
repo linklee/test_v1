@@ -1,29 +1,15 @@
-<%= form_for(@answer) do |f| %>
-  <% if @answer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
+<div class="w-form">
+  <%= form_for(@answer) do |f| %>
+    <div class="field">
+      <%= f.label "Дать ответ:" %><br>
+      <%= f.text_area :body, class: "w-input" %>
+    </div>
 
-      <ul>
-      <% @answer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="field">
+      <%= f.text_field :question_id %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Ответить", class: "w-button"%>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :question_id %><br>
-    <%= f.text_field :question_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
