@@ -6,8 +6,9 @@
     </div>
 
     <div class="field">
-      <%= f.text_field :question_id %>
+      <%= f.hidden_field :question_id, value: @question.id %>
     </div>
+
     <div class="actions">
       <%= f.submit "Ответить", class: "w-button"%>
     </div>
