@@ -10,7 +10,8 @@
 		  	<%= @question.body %>
 		  </p>
 		</p>
-		<a class = "show-answer-link" href = "" > Дать ответ  </a>
+		<%= render "answers/answers_block" %>
+		<a class = "show-answer-link" href = "" > <%= @new_answer_link_text %>  </a>
 		<%= render "answers/new_form"%>
 	</div>
 

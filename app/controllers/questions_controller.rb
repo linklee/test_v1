@@ -13,6 +13,10 @@ class QuestionsController < ApplicationController
   def show
     #creating new answer
     @answer = Answer.new
+    #getting all answers that belong to question
+    @answers = @question.answers
+    #New answer link should have different titles if there are already some answers to question
+    @new_answer_link_text = @answers.any? ? "Дать новый ответ" : "Дать ответ"
   end
 
   # GET /questions/new
