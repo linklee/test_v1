@@ -7,7 +7,7 @@ RSpec.describe "Authorization", type: :request do
   context "when not signed in" do
     describe "GET 'questions/new'" do
       before { visit new_question_path}
-      it "redirects to sign in" do
+      it "should show sign_in form" do
         #get new_question_path
 
       	#This is not working:
@@ -21,15 +21,16 @@ RSpec.describe "Authorization", type: :request do
     before do
       @user ||= FactoryGirl.create :user
       #post_via_redirect new_user_session_path, 'user[email]' => @user.email, 'user[password]' => @user.password
-	  sign_in @user
+      page.driver.post new_user_session_path, 'user[email]' => @user.email, 'user[password]' => 'password123'
 	  visit new_question_path
 
     end
-    describe 'GET :index' do
+    describe "GET 'questions/new'" do
 
-      it "returns http success" do
+      it "shows new question form" do
       
-      expect(page).to have_css('form#new_user'), "#{page.body}"
+      expect(page).not_to have_css('form#new_user'), "#{page.body}"
+      expect(page).to have_css('form#new_question'), "#{page.body}"
 
       end
     end
