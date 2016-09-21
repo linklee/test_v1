@@ -11,9 +11,11 @@
 		  </p>
 		</p>
 		<%= render "answers/answers_block" %>
-		<a class = "show-answer-link" href = "" > <%= @new_answer_link_text %>  </a>
-		<%= render "answers/new_form"%>
+		<% if user_signed_in? %>
+			<a class = "show-answer-link" href = "" > <%= @new_answer_link_text %>  </a>
+			<%= render "answers/new_form"%>
+		<%end%>
 	</div>
 
-<%= link_to 'Задать вопрос', new_question_path %>
+<%= link_to 'Задать вопрос', new_question_path if user_signed_in?%>
 </div>

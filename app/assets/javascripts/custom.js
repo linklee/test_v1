@@ -7,7 +7,7 @@ var showAnswerForm = function () {
 }
 ready = function() {
 	//show new answer form on click
-	console.log('turbolinks loaded')
+	console.log('turbolinks loaded');
 	$("body").on("click", ".show-answer-link",showAnswerForm);
 };
 

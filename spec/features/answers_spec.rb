@@ -6,7 +6,9 @@ RSpec.describe "Answers", type: :request do
   let!(:q) { FactoryGirl.create(:question, user: user, body: "sample text", title: "sample title") }
 
   before do 
+    #login
     page.driver.post new_user_session_path, 'user[email]' => user.email, 'user[password]' => 'password123'
+    #go to question page
     visit question_path(q) 
   end
   describe "GET question/question_id'" do
@@ -20,19 +22,27 @@ RSpec.describe "Answers", type: :request do
       #check that form is not hidden
       expect(page).not_to have_css(".new-answer-form.hidden"), "#{page.body}"
     end
-    it "should create new answer when submit new answer form" do
+    it "should create new answer when submit new answer form " do
       expect(q.answers.size).to eq(0)
-      a = page.find(".show-answer-link")
+      #a = page.find(".show-answer-link")
       f = page.find("form.new_answer")
-      a.click
+      #a.click
       within f do
         find('textarea[name="answer[body]"]').set "Answer body" 
         find('input[name="commit"]').click
       end
-      #expect(q.answers.size).to eq(1), "#{page.body} +++++ #{q.id}"
-      answers = Answer.where(:question_id => q.id)
-      expect(answers.size).to eq(1)
+      q.reload
+      #check that new answer is created
+      expect(q.answers.size).to eq(1)
+    end
+    it "New answer link should have text 'Дать ответ' when there are no answers to question" do
+      expect(page).to have_css(".show-answer-link", text: "Дать ответ")
     end
 
+    it "New answer link should have text 'Дать новый ответ' when there are answers to question" do
+      FactoryGirl.create(:answer, user: user, body: "sample text", question: q)
+      visit question_path(q)    
+      expect(page).to have_css(".show-answer-link", text: "Дать новый ответ"), "#{q.answers.size}"
+    end
   end
 end
