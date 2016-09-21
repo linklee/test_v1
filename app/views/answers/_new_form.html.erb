@@ -2,7 +2,7 @@
   <%= form_for(@answer) do |f| %>
     <div class="field">
       <%= f.label "Дать ответ:" %><br>
-      <%= f.text_area :body, class: "w-input" %>
+      <%= f.text_area :body, class: "w-input" , required: "required" %>
     </div>
 
     <div class="field">

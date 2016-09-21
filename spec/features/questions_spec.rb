@@ -4,7 +4,6 @@ require 'rails_helper'
 RSpec.describe "Questions", type: :request do
   let(:user) { FactoryGirl.create(:user) }
   let!(:q1) { FactoryGirl.create(:question, user: user, body: "sample text", title: "sample title") }
-
   before { visit question_path(q1) }
   describe "GET /questions/question_id" do
     it "should have question title" do

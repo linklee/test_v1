@@ -29,7 +29,7 @@ RSpec.describe "Authorization", type: :request do
     before do
       @user ||= FactoryGirl.create :user
       page.driver.post new_user_session_path, 'user[email]' => @user.email, 'user[password]' => 'password123'
-	  visit new_question_path
+	    visit new_question_path
 
     end
     describe "GET 'questions/new'" do
