@@ -1,0 +1,7 @@
+<div class="additions">
+	<% answer.pending_edits.each do |edit|
+			if current_user == answer.user or current_user == edit.user %>
+				<%= render "edits/show", edit: edit %>
+			<%end%>
+	<%end%>
+</div>

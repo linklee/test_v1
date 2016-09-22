@@ -11,8 +11,9 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
-    #creating new answer
+    #creating new answer and new edit for forms
     @answer = Answer.new
+    @edit = Edit.new
     #getting all answers that belong to question
     @answers = @question.answers
     #New answer link should have different titles if there are already some answers to question

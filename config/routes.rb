@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :edits
-  resources :answers, only: [:index, :show, :new,:edit, :create]
+  resources :answers, only: [:index, :show, :new, :update, :edit, :create]
   resources :edits, only: [:index, :show, :new, :create]
 
   resources :questions, only: [:index, :show, :new, :create]
@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'questions#index'
+  #post  'edits/accept_edit' => 'edits#accept_edit', :as => 'accept_edit'
+  post 'edits/:id/accept', to: 'edits#accept', as: 'accept_edit'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -5,9 +5,11 @@
 				<strong>
 					<%= "#{answer.user.name} #{answer.user.last_name}" %>
 				</strong>
-				<%= time_ago_in_words(@question.created_at) + " назад" %>
+				<%= time_ago_in_words(answer.created_at) + " назад" %>
 			</p>
-		<a href="#">Предложить правку</a>
+			<%= render "edits/edits_block", answer: answer %>
+			<%= render "edits/new_form", answer: answer if user_signed_in? %>
+
 		</div>
 	<%end%>
  </div>

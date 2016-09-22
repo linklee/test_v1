@@ -4,11 +4,7 @@ FactoryGirl.define do
     user
     answer 
   end
-  factory :answer do
-    body "MyText"
-    user
-    question 
-  end
+  
   factory :user do
     sequence(:name)  { |n| "Person #{n}" }
     sequence(:last_name)  { |n| "Person #{n}" }
@@ -22,5 +18,10 @@ FactoryGirl.define do
     title "title"
     body "Lorem ipsum"
     user
+  end
+  factory :answer do
+    body "MyText"
+    user
+    question 
   end
 end

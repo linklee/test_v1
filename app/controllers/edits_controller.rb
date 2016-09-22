@@ -1,5 +1,5 @@
 class EditsController < ApplicationController
-  before_action :set_edit, only: [:show, :edit, :update, :destroy]
+  before_action :set_edit, only: [:show, :edit, :update, :destroy, :accept]
 
   # GET /edits
   # GET /edits.json
@@ -25,10 +25,10 @@ class EditsController < ApplicationController
   # POST /edits.json
   def create
     @edit = Edit.new(edit_params)
-
+    @edit.user = current_user
     respond_to do |format|
       if @edit.save
-        format.html { redirect_to @edit, notice: 'Edit was successfully created.' }
+        format.html { redirect_to @edit.answer, notice: 'Правка успешно создана.' }
         format.json { render :show, status: :created, location: @edit }
       else
         format.html { render :new }
@@ -60,6 +60,16 @@ class EditsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def accept
+    #if not user that created answer redirect to question page
+    if current_user != @edit.user
+      redirect_to @edit.answer.question, notice: 'Принять правку может только автор вопроса.'
+    else
+      #approve
+      edit.approve
+      redirect_to @edit.answer.question, notice: 'Правка успешно принята.'
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -69,6 +79,6 @@ class EditsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def edit_params
-      params.require(:edit).permit(:body, :user_id, :answer_id)
+      params.require(:edit).permit(:body, :answer_id)
     end
 end

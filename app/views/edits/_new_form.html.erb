@@ -1,0 +1,17 @@
+<a class = "show-edit-link show-edit-<%= answer.id %>" data-answer= <%= answer.id %> href = "#" > Предложить правку  </a>
+<div class="w-form new-edit-form edit-for-answer-<%= answer.id %> hidden">
+  <%= form_for(@edit) do |f| %>
+    <div class="field">
+      <%= f.label "Предложить правку:" %><br>
+      <%= f.text_area :body, class: "w-input" , required: "required" %>
+    </div>
+
+    <div class="field">
+      <%= f.hidden_field :answer_id, value: answer.id %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Ответить", class: "w-button"%>
+    </div>
+  <% end %>
+</div>
