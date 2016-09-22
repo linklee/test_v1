@@ -1,4 +1,6 @@
 <div class="additions">
+	<%= render "edits/current_accepted", edit: answer.current_accepted_edit if answer.current_accepted_edit %>
+
 	<% answer.pending_edits.each do |edit|
 			if current_user == answer.user or current_user == edit.user %>
 				<%= render "edits/show", edit: edit %>

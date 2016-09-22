@@ -9,4 +9,7 @@ class Answer < ActiveRecord::Base
   def updateBody (new_body)
   	update_attributes :old_body => self.body, :body => new_body
   end
+  def current_accepted_edit
+  	edits.find_by(:is_current => true)
+  end
 end
