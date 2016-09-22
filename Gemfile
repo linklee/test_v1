@@ -25,8 +25,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 
-#gem 'htmldiff' #trash
 gem 'differ'
+gem 'russian', '~> 0.6.0'
+gem 'devise-i18n'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
