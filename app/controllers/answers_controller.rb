@@ -46,7 +46,7 @@ class AnswersController < ApplicationController
       redirect_to @answer.question, notice: 'Принять правку может только автор вопроса.'
     else
       #approve edit
-      edit = Edit.find(params["xxx"])
+      edit = Edit.find(params[:xxx])
       edit.approve
       redirect_to @answer.question, notice: 'Правка усешно принята.'
     end

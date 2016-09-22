@@ -2,7 +2,7 @@
 	<%= form_for(answer)  do |f| %>
 	    <div class="field">
 	      <%= f.label "Принять правку:" %><br>
-	          <%= f.text_area :xxx, value: edit.id, class: "w-input ", required: "required" %>
+	      <%= f.text_area :xxx, value: edit.id, class: "w-input ", required: "required" %>
 	      <%= f.text_area :old_body, value: edit.answer.body, class: "w-input hidden", required: "required" %>
 	      <%= f.text_area :body, value: "#{edit.answer.body} #{edit.body}", class: "w-input", required: "required" %>
 	    </div>

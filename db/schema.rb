@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 120160919164942) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.boolean  "is_approved"
+    t.boolean  "is_current"
   end
 
   add_index "edits", ["answer_id"], name: "index_edits_on_answer_id", using: :btree

@@ -6,4 +6,7 @@ class Answer < ActiveRecord::Base
   def pending_edits
   	self.edits.where(:is_approved => nil)
   end
+  def updateBody (new_body)
+  	update_attributes :old_body => self.body, :body => new_body
+  end
 end

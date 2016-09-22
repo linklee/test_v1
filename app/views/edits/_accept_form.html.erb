@@ -1,0 +1,13 @@
+<div class="w-form accept-edit-form accept-edit-<%= edit.id %> hidden">
+	<%= form_tag  accept_edit_path( edit), :method => "post"  do |f| %>
+	    <div class="field">
+	      <%= hidden_field_tag :id, edit.id%>
+	      <%= text_field_tag :new_body, "#{edit.answer.body} #{edit.body}", class: "w-input", required: "required" %>
+	    </div>
+
+
+	    <div class="actions">
+	      <%= submit_tag "Принять правку", class: "w-button"%>
+	    </div>
+	<% end %>
+</div>

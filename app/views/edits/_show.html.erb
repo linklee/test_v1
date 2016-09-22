@@ -9,9 +9,9 @@
 		<!--<a href="#" onclick = "alert(1);return false"></a>-->
 		
 		<a  class = "accept-link accept-link edit#{edit.id}" 
-			data-answer = <%= "#{edit.answer.id}-#{edit.id}" %>
+			data-answer = <%=edit.id %>
 	    	href = "#" > Принять правку  </a>
 
-		<%= render "answers/update_form", edit: edit, answer: edit.answer %>
+		<%= render "edits/accept_form", edit: edit, answer: edit.answer %>
 	<%end%>
 </div>

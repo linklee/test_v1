@@ -23,7 +23,7 @@ var ready,
 		return false;
 	},
 	//update answer = accept edit form
-	showUpdateAnswerForm = function () {
+	showAcceptEditForm = function () {
 		//store this object which = clicked link
 		var clickedLink = $(this);
 
@@ -34,7 +34,7 @@ var ready,
 		clickedLink.addClass('hidden');
 
 		//remove class hidden
-		$('.update-answer-' + answerId).removeClass('hidden');
+		$('.accept-edit-' + answerId).removeClass('hidden');
 		return false;
 	};
 
@@ -44,7 +44,7 @@ ready = function() {
 	console.log('turbolinks loaded');
 	$("body").on("click", ".show-answer-link", showAnswerForm);
     $("body").on("click", ".show-edit-link", showEditForm);
-    $("body").on("click", ".accept-link",  showUpdateAnswerForm);
+    $("body").on("click", ".accept-link",  showAcceptEditForm);
 
 };
 
