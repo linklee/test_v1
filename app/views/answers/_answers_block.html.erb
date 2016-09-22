@@ -1,7 +1,7 @@
 <div class="answers-block">
 	<% @answers.each do |answer|%>
 		<div class="answer">
-			<p><%= answer.body %> – 
+			<p><%= raw AnswersHelper.getDiff answer.body, answer.old_body %> – 
 				<strong>
 					<%= "#{answer.user.name} #{answer.user.last_name}" %>
 				</strong>

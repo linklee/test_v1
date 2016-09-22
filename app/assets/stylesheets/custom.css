@@ -15,6 +15,7 @@
 .hidden {
 	display: none;
 }
+
 .scenario-step {
   margin-bottom: 100px;
 }
@@ -57,4 +58,17 @@
   margin-bottom: 20px;
   padding-left: 10px;
   border-left: 1px solid #ccc;
+}
+ins, del {
+	text-decoration: none
+}
+del {
+	display: none
+}
+ins.highlight {
+    background-color: #d0f8df;
+}
+del.highlight {
+	background-color: #d4979f;
+	display: inline;
 }

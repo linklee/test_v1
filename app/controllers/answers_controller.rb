@@ -1,3 +1,5 @@
+require 'differ'
+
 class AnswersController < ApplicationController
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, :except => [:show, :index]

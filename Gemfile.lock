@@ -69,6 +69,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    differ (0.1.2)
     erubis (2.7.0)
     execjs (2.7.0)
     factory_girl (4.7.0)
@@ -261,6 +262,7 @@ DEPENDENCIES
   childprocess
   coffee-rails (~> 4.1.0)
   devise
+  differ
   factory_girl_rails
   guard-rspec
   guard-spork

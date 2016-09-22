@@ -36,6 +36,32 @@ var ready,
 		//remove class hidden
 		$('.accept-edit-' + answerId).removeClass('hidden');
 		return false;
+	},
+	showHightLight = function () {
+		//store this object which = clicked link
+		console.log('show hightlight');
+
+		var clickedLink = $(this),
+			//find nearest answer block
+			answer = clickedLink.closest('.answer'),
+			//find del or ins element with differ class
+			diff = answer.find('.differ');
+		//add class to highlight
+		diff.addClass('highlight');
+		return false;
+	},
+	hideHightLight = function () {
+		//store this object which = clicked link
+		console.log('show hightlight');
+
+		var clickedLink = $(this),
+			//find nearest answer block
+			answer = clickedLink.closest('.answer'),
+			//find del or ins element with differ class
+			diff = answer.find('.differ');
+		//add class to highlight
+		diff.removeClass('highlight');
+		return false;
 	};
 
 
@@ -45,7 +71,8 @@ ready = function() {
 	$("body").on("click", ".show-answer-link", showAnswerForm);
     $("body").on("click", ".show-edit-link", showEditForm);
     $("body").on("click", ".accept-link",  showAcceptEditForm);
-
+    $(".link-view-addition-changes").hover(showHightLight, hideHightLight);
+    
 };
 
 // //on on turbolinks load call ready function (it is calling just once)
