@@ -7,7 +7,7 @@ class Edit < ActiveRecord::Base
   	#set is_current attr to false if current edit is not nil
   	current_edit.update_attribute(:is_current, false) if current_edit
   	# accepted edit - set is approved and current attr to true 
-	update_attributes :is_approved => true, :is_current => true
+	  update_attributes :is_approved => true, :is_current => true
   end
 
 end

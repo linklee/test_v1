@@ -70,7 +70,7 @@ class EditsController < ApplicationController
       #accept edit
       @edit.accept
       #change answer body
-      answer.updateBody(params[:new_body])
+      answer.update_body(params[:new_body])
 
       redirect_to answer.question, notice: 'Правка успешно принята.'
     end
