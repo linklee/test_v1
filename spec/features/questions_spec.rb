@@ -1,9 +1,10 @@
 require 'spec_helper'
 require 'rails_helper'
+puts $LOAD_PATH
+require 'main_helper'
 
 RSpec.describe "Questions", type: :request do
-  let(:user) { FactoryGirl.create(:user) }
-  let!(:q1) { FactoryGirl.create(:question, user: user, body: "sample text", title: "sample title") }
+  MainHelper.auth
   before { visit question_path(q1) }
   describe "GET /questions/question_id" do
     it "should have question title" do
