@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 120160919164942) do
     t.integer  "question_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.text     "old_body"
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
@@ -42,8 +43,10 @@ ActiveRecord::Schema.define(version: 120160919164942) do
     t.text     "body"
     t.integer  "user_id"
     t.integer  "answer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.boolean  "is_approved"
+    t.boolean  "is_current"
   end
 
   add_index "edits", ["answer_id"], name: "index_edits_on_answer_id", using: :btree

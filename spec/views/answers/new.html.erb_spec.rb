@@ -9,16 +9,5 @@ RSpec.describe "answers/new", type: :view do
     ))
   end
 
-  it "renders new answer form" do
-    render
-
-    assert_select "form[action=?][method=?]", answers_path, "post" do
-
-      assert_select "textarea#answer_body[name=?]", "answer[body]"
-
-      assert_select "input#answer_user_id[name=?]", "answer[user_id]"
-
-      assert_select "input#answer_question_id[name=?]", "answer[question_id]"
-    end
-  end
+ 
 end

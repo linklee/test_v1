@@ -1,0 +1,17 @@
+<div class="addition">
+	<p>+&nbsp;<%= edit.body %>–
+	 <strong>
+		<%= "#{edit.user.name} #{edit.user.last_name}" %>
+	</strong>
+	<%= time_ago_in_words(edit.created_at) + " назад" %>
+	</p>
+	<% if current_user == edit.answer.user %>
+		<!--<a href="#" onclick = "alert(1);return false"></a>-->
+		
+		<a  class = "accept-link accept-link edit#{edit.id}" 
+			data-answer = <%=edit.id %>
+	    	href = "#" > Принять правку  </a>
+
+		<%= render "edits/accept_form", edit: edit, answer: edit.answer %>
+	<%end%>
+</div>

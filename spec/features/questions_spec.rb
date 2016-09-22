@@ -2,8 +2,9 @@ require 'spec_helper'
 require 'rails_helper'
 
 RSpec.describe "Questions", type: :request do
-  let(:user) { FactoryGirl.create(:user) }
+  let!(:user) { FactoryGirl.create(:user) }
   let!(:q1) { FactoryGirl.create(:question, user: user, body: "sample text", title: "sample title") }
+  let!(:answer) { FactoryGirl.create(:answer, user: user, question: q1) }
 
   before { visit question_path(q1) }
   describe "GET /questions/question_id" do

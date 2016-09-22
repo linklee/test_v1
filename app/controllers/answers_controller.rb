@@ -1,5 +1,8 @@
+require 'differ'
+
 class AnswersController < ApplicationController
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :except => [:show, :index]
 
   # GET /answers
   # GET /answers.json
@@ -25,10 +28,10 @@ class AnswersController < ApplicationController
   # POST /answers.json
   def create
     @answer = Answer.new(answer_params)
-
+    @answer.user = current_user
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to @answer, notice: 'Answer was successfully created.' }
+        format.html { redirect_to @answer.question, notice: 'Вопрос успешно создан.' }
         format.json { render :show, status: :created, location: @answer }
       else
         format.html { render :new }
@@ -40,15 +43,18 @@ class AnswersController < ApplicationController
   # PATCH/PUT /answers/1
   # PATCH/PUT /answers/1.json
   def update
-    respond_to do |format|
-      if @answer.update(answer_params)
-        format.html { redirect_to @answer, notice: 'Answer was successfully updated.' }
-        format.json { render :show, status: :ok, location: @answer }
-      else
-        format.html { render :edit }
-        format.json { render json: @answer.errors, status: :unprocessable_entity }
-      end
+    if current_user != @answer.user
+      @answer.update(answer_params)
+      redirect_to @answer.question, notice: 'Принять правку может только автор вопроса.'
+    else
+      #approve edit
+      edit = Edit.find(params[:xxx])
+      edit.approve
+      redirect_to @answer.question, notice: 'Правка усешно принята.'
     end
+
+     # @answer.update_attributes(:old_body => @answer.body, :body => params[:tmp_body])
+
   end
 
   # DELETE /answers/1
@@ -69,6 +75,6 @@ class AnswersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def answer_params
-      params.require(:answer).permit(:body, :user_id, :question_id)
+      params.require(:answer).permit(:body, :question_id, :old_body, :xxx)
     end
 end

@@ -1,0 +1,12 @@
+	<div class="addition">
+		<p>✓&nbsp;<%= edit.body %>–
+			 <strong>
+				<%= "#{edit.user.name} #{edit.user.last_name}" %>
+			 </strong>
+			 <%= time_ago_in_words(edit.created_at) + " назад, " %>
+			 <span class="link-view-addition-changes">
+			 	принято
+			 </span> 
+			 <%= time_ago_in_words(edit.updated_at) + " назад" %>
+		 </p>
+	</div>

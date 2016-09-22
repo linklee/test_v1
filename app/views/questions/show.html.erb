@@ -10,8 +10,9 @@
 		  	<%= @question.body %>
 		  </p>
 		</p>
-		<%= link_to 'Дать ответ', new_answer_path %>
+		<%= render "answers/answers_block" %>
+		<%= render "answers/new_form" if user_signed_in?%>
 	</div>
 
-<%= link_to 'Задать вопрос', new_question_path %>
+<%= link_to 'Задать вопрос', new_question_path%>
 </div>

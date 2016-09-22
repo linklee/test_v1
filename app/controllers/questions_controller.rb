@@ -1,3 +1,4 @@
+
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, :except => [:show, :index]
@@ -11,6 +12,13 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
+    #creating new answer and new edit for forms
+    @answer = Answer.new
+    @edit = Edit.new
+    #getting all answers that belong to question
+    @answers = @question.answers
+    #New answer link should have different titles if there are already some answers to question
+    @new_answer_link_text = @answers.any? ? "Дать новый ответ" : "Дать ответ"
   end
 
   # GET /questions/new

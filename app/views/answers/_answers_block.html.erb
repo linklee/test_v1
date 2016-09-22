@@ -1,0 +1,15 @@
+<div class="answers-block">
+	<% @answers.each do |answer|%>
+		<div class="answer">
+			<p><%= raw AnswersHelper.getDiff answer.body, answer.old_body %> – 
+				<strong>
+					<%= "#{answer.user.name} #{answer.user.last_name}" %>
+				</strong>
+				<%= time_ago_in_words(answer.created_at) + " назад" %>
+			</p>
+			<%= render "edits/edits_block", answer: answer %>
+			<%= render "edits/new_form", answer: answer if user_signed_in? %>
+
+		</div>
+	<%end%>
+ </div>

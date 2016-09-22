@@ -52,12 +52,7 @@ RSpec.describe AnswersController, type: :controller do
     end
   end
 
-  describe "GET #new" do
-    it "assigns a new answer as @answer" do
-      get :new, params: {}, session: valid_session
-      expect(assigns(:answer)).to be_a_new(Answer)
-    end
-  end
+ 
 
   describe "GET #edit" do
     it "assigns the requested answer as @answer" do
