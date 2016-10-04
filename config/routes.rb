@@ -13,6 +13,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'questions#index'
+  get 'description' => 'application#description'
+  get 'task' => 'application#task'
+
   #post  'edits/accept_edit' => 'edits#accept_edit', :as => 'accept_edit'
   post 'edits/:id/accept', to: 'edits#accept', as: 'accept_edit'
 
